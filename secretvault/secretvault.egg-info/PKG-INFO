@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: secretvault
+Version: 0.1.0
+Summary: A local, encrypted secrets vault with a tamper-evident audit log.
+Requires-Python: >=3.9
+Requires-Dist: cryptography==49.0.0
+Requires-Dist: click==8.4.1

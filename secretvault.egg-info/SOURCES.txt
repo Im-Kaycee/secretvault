@@ -1,0 +1,14 @@
+pyproject.toml
+secretvault/__init__.py
+secretvault/audit.py
+secretvault/cli.py
+secretvault/crypto.py
+secretvault/storage.py
+secretvault/test.py
+secretvault.egg-info/PKG-INFO
+secretvault.egg-info/SOURCES.txt
+secretvault.egg-info/dependency_links.txt
+secretvault.egg-info/entry_points.txt
+secretvault.egg-info/requires.txt
+secretvault.egg-info/top_level.txt
+tests/test_vault.py

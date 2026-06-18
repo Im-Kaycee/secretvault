@@ -1,2 +1,3 @@
 secretvault/test.py
 secretvault/__pycache__/*
+.env
