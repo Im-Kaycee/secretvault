@@ -59,3 +59,15 @@ def delete_secret(conn: sqlite3.Connection, path: str) -> bool:
     cursor = conn.execute("DELETE FROM secrets WHERE path = ?", (path,))
     conn.commit()
     return cursor.rowcount > 0
+#KEK rotation support - need to be able to get all wrapped DEKs and update them with new ones
+def get_all_wrapped_deks(conn: sqlite3.Connection) -> list[tuple[str, bytes]]:
+    """Used during key rotation - need every path's wrapped DEK to re-wrap them all."""
+    rows = conn.execute("SELECT path, wrapped_dek FROM secrets").fetchall()
+    return [(r[0], r[1]) for r in rows]
+
+
+def update_wrapped_dek(conn: sqlite3.Connection, path: str, new_wrapped_dek: bytes):
+    conn.execute(
+        "UPDATE secrets SET wrapped_dek = ? WHERE path = ?", (new_wrapped_dek, path)
+    )
+    conn.commit()
